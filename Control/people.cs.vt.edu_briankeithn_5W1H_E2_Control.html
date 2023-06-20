@@ -1,0 +1,297 @@
+
+<!-- saved from url=(0057)https://people.cs.vt.edu/briankeithn/5W1H/E2/Control.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/anychart-core.min.js"></script>
+    <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/anychart-radar.min.js"></script>
+    <style data-tippy-stylesheet="">.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><link href="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/core@2"></script>
+    <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/tippy.js@6"></script>
+    <style type="text/css">
+    :root {
+      --jp-ui-font-scale-factor: 1.2;
+      --jp-ui-font-size0: calc(var(--jp-ui-font-size1)/var(--jp-ui-font-scale-factor));
+      --jp-ui-font-size1: 13px; /* Base font size */
+      --jp-ui-font-size2: calc(var(--jp-ui-font-size1)*var(--jp-ui-font-scale-factor));
+      --jp-ui-font-size3: calc(var(--jp-ui-font-size2)*var(--jp-ui-font-scale-factor));
+        --jp-widgets-font-size: var(--jp-ui-font-size1);
+        --jp-widgets-margin: 2px;
+        --jp-widgets-inline-height: 32px;
+    }
+    .widget-html-content {
+        /* Fill out the area in the HTML widget */
+        align-self: stretch;
+        flex-grow: 1;
+        flex-shrink: 1;
+        /* Makes sure the baseline is still aligned with other elements */
+        line-height: var(--jp-widgets-inline-height);
+        /* Make it possible to have absolutely-positioned elements in the html */
+        position: relative;
+    }
+    .blur {
+        color: transparent;
+        text-shadow: 0 0 8px #000;
+    }
+    .noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+    </style>
+    <style>
+        .what_block, .who_block, .when_block, .where_block, .why_block, .how_block {
+            border: 1px solid;
+            margin: 5px 0px;
+            padding:5px 2px;
+        }
+        .what_block {
+            color: #00529b;
+            background-color: #bde5f8;
+        }
+        .who_block {
+            color: #00529b;
+            background-color: #bde5f8;
+        }
+        .when_block {
+            color: #9f6000;
+            background-color: #FEEFB3;
+        }
+        .where_block {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+        .why_block {
+            color: #5084BE;
+            background-color: #B0E0E6;
+        }
+        .how_block {
+            color: #00529b;
+            background-color: #bde5f8;
+        }        
+    </style>
+    <style>
+        .what, .who, .when, .where, .why, .how {
+            border: 1px solid;
+            margin: 10px 0px;
+            padding:15px 10px;
+        }
+        .what {
+            color: #00529b;
+            background-color: #bde5f8;
+        }
+        .who {
+            color: #00529b;
+            background-color: #bde5f8;
+        }
+        .when {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+        .where {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+        .why {
+            color: #D8000C;
+            background-color: #FFBABA;
+        }
+        .how {
+            color: #00529b;
+            background-color: #bde5f8;
+        }        
+        </style>
+        <style type="text/css">
+            .svg-container { 
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                padding-bottom: 0%; 
+                vertical-align: middle; 
+                overflow: hidden; 
+            }
+        #authorDiv {
+           width: 100%; 
+           text-align: left; 
+           border-bottom: 1px solid #000; 
+           line-height: 0.1em;
+           border-color: gray;
+           margin: 10px 0px 20px -10px; 
+        } 
+
+        #authorDiv span { 
+            background:#fff; 
+            padding:0 10px; 
+        }
+        hr {
+            color: gray;
+            background-color: gray;
+        }
+        </style>
+</head>
+
+<body>
+<div class="svg-container">
+<img style="display: block;" alt="The News Beat" src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/newsBeat.svg">
+</div>
+<hr style="width:100%;text-align:left;margin-left:0">
+<center><button id="hide_info" class="btn btn-primary">Hide/Show Article</button></center>
+<hr style="width:100%;text-align:left;margin-left:0">
+<br>
+        <script>
+        $(document).ready(function(){
+          $("#hide_info").click(function() {     
+              if($('#article_content.blur').length) {
+                  //$('#main_row').addClass("justify-content-center",2000);
+                  //$('#article').hide("slide", { direction: "right" }, 0);
+
+
+                  //$('#article_info').removeClass("col-sm-1 col-md-2 col-lg-3", 500);
+                  //$('#article').removeClass("col-sm-3 col-md-6 col-lg-9", 500).addClass("col-sm-4 col-md-8 col-lg-12",500);
+                  $('#article_content').removeClass("blur noselect");
+              } else {           
+                  
+                  //$('#article').removeClass("col-sm-4 col-md-8 col-lg-12",0).addClass("col-sm-3 col-md-6 col-lg-9",0);
+                  //$('#article_info').addClass("col-sm-1 col-md-2 col-lg-3", 200);
+                  //$('#main_row').removeClass("justify-content-center")
+                  //$('#article').show("fold", { direction: "right" }, 1000);
+                  $('#article_content').addClass("blur noselect");
+              }
+          });
+        });
+        </script>
+
+<div class="container-fluid">
+
+<div id="main_row" class="row g-0">
+
+<div id="article" style="" class="col-sm-9 col-md-9 col-lg-9">
+  <div class="widget-html-content">
+        <center><h2 style="font-family: Helvetica">Ticketmaster Proposes Plan to Require Event Attendees to Provide Test Results or Proof of Vaccination</h2></center>
+        <div id="authorDiv"><span><b>By Riley Smith</b></span></div>
+        Mar. 12, 2021.<br><br>
+        <div id="article_content" class="blur noselect">
+        Ticketmaster is making plans for a post-pandemic world that once again involves concerts, sporting events, and large gatherings of people – but these congregations may have a different look to them. That's because the world's largest ticketing marketer has announced that it plans to require event attendees to verify that they have tested negative for coronavirus within a 72-hour time frame prior to the event and/or received a coronavirus vaccine (which would provide approximately one year of COVID-19 protection), according to an exclusive interview published in Billboard.<br><br>Hoping to recover from the decimating effect the pandemic had on the entertainment industry, Ticketmaster has proposed a three-part plan to require those who have purchased a ticket to ask third-party health care providers to deliver test results to the ticketing marketer. Upon successful verification, Ticketmaster will then send the needed credentials to attend the event. The ticketing company says it will not have access to customers' medical records; only a verification on whether the fan is cleared to attend.
+        </div>
+</div>
+  </div>
+
+<div id="article_info" style="" class="col-sm-3 col-md-3 col-lg-3">
+  <div class="widget-html-content">
+        <center><h4>Publication Date</h4></center>
+        <center>03/12/2021</center>
+              
+      </div>
+    </div>
+
+
+</div>
+        <script>
+          // With the above scripts loaded, you can call `tippy()` with a CSS
+          // selector and a `content` prop:
+          tippy('.who_block', {
+            content: 'Ticketmaster Entertainment, Inc. is an American ticket sales and distribution company based in Beverly Hills, California with operations in many countries around the world. In 2010 it merged with Live Nation under the name Live Nation Entertainment.',
+            arrow: true,
+            placement:'bottom',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.who', {
+            content: 'Ticketmaster Entertainment, Inc. is an American ticket sales and distribution company based in Beverly Hills, California with operations in many countries around the world. In 2010 it merged with Live Nation under the name Live Nation Entertainment.',
+            arrow: true,
+            placement:'left',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.when', {
+            content: 'This information is missing. There is no mention of when Ticketmaster proposed this plan or would implement it.',
+            arrow: true,
+            placement:'left',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.where', {
+            content: 'This information is missing. There is no mention of where this plan was proposed or where it would be implemented.',
+            arrow: true,
+            placement:'left',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.why', {
+            content: 'This information is missing. There is no explicit mention of the reasons behind the proposed plan.',
+            arrow: true,
+            placement:'left',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.what', {
+            content: 'The article specifies that Ticketmaster is making plans to require test results or proof of vaccination for COVID-19.',
+            arrow: true,
+            placement:'left',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.how', {
+            content: 'The article specifies how the proposed plan would work.',
+            arrow: true,
+            placement:'left',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.what_block', {
+            content: 'The article specifies that Ticketmaster is making plans to require test results or proof of vaccination for COVID-19.',
+            arrow: true,
+            placement:'bottom',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+
+          tippy('.how_block', {
+            content: 'The article specifies how the proposed plan would work.',
+            arrow: true,
+            placement:'bottom',
+            interactive: true,
+            allowHTML: true,
+            hideOnClick: true,
+            interactiveBorder: 30,
+            duration: 0
+          });
+        </script>
+
+        <script src="./people.cs.vt.edu_briankeithn_5W1H_E2_Control_files/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</div></body></html>
